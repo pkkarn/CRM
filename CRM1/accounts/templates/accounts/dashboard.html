@@ -1,0 +1,63 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+<h3>Dashboard</h3>
+<br>
+{% for message in messages %}
+                 <p class="alert alert-success">{{message}}</p>
+            {% endfor %}
+{% include 'accounts/include/status.html' %}
+<div class="row">
+    <div class="col-md-5">
+        <h5>CUSTOMERS</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'createCustomer' %}">Create Customer</a>
+            <table class="table tbale-sm">
+                <tr>
+                    <td></td>
+                    <th>Customer</th>
+                    <th>Phone</th>
+                </tr>
+
+                {% for customer in customers %}
+                <tr>
+                    <td><a href="{% url 'customers' customer.id %}"><button type="button" class="btn btn-primary btn-sm">View</button></td>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.phone}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-7">
+        <h5>LAST 5 ORDERS</h5>
+        <hr>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Product</th>
+                    <th>Category</th>
+                    <th>Date Order</th>
+                    <th>Status</th>
+                    <th>Update</th>
+                    <th>Remove</th>
+                </tr>
+                {% for order in orders %}
+                <tr>
+                    <td>{{order.product}}</td>
+                    <th>{{order.product.category}}</th>
+                    <td>{{order.created}}</td>
+                    <td>{{order.status}}</td>
+                    <td><a href="{% url 'updateOrder' order.id %}"><button type="button" class="btn btn-warning btn-sm">Update</button></td>
+                     <td><a href="{% url 'deleteOrder' order.id %}"><button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <!-- Hi Thanks For Article -->
+    </div>
+</div>
+
+{% endblock %}

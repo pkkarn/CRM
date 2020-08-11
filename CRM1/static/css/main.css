@@ -1,0 +1,36 @@
+#logo{
+}
+
+body{
+     background-color: #ffff99;
+}
+
+#total-orders{
+     background-color: #4d79ff;
+}
+
+#orders-delivered{
+     background-color: #5cd65c;
+}
+
+#orders-pending{
+     background-color: #ff704d;
+}
+.footer{
+  position: fixed
+  ;
+  padding: 15px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.profile{
+  border-radius: 50%;
+  width: 200px;
+  height: auto;
+}
+

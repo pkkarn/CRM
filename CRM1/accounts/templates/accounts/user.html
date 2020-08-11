@@ -1,0 +1,29 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+{% include 'accounts/include/status.html' %}
+
+<div class="row">
+        <div class="col-md">
+            <div class="card card-body">
+                    <table class="table table-sm"><!--table-sm  For Responsive-->
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Date Ordered</th>
+                            <th>Status</th>
+                        </tr>
+                        {% for order in orders %}
+                        <tr>
+                            <td>{{order.product}}</td>
+                            <td>{{order.product.category}}</td>
+                            <td>{{order.created}}</td>
+                            <td>{{order.status}}</td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

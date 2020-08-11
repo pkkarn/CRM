@@ -1,0 +1,37 @@
+{% extends 'accounts/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+            <h2>Login</h2>
+        </div>
+    </div>
+<div class="row justify-content-center mt-5">
+        <div class="col-md-5">
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" name="username" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" id="password">
+                </div>
+    {% for message in messages %}
+                 <p class="alert alert">{{message}}</p>
+            {% endfor %}
+                <button type="submit" class="btn btn-warning">Login</button>
+
+
+</form>
+    <hr>
+
+    <div class="text-center">
+                Need an account? <a href="{% url 'register' %}">Sign Up here</a>
+            </div>
+        </div>
+</div>
+
+{% endblock %}
